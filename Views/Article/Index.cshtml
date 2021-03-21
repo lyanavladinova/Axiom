@@ -1,0 +1,42 @@
+﻿@model List<ArticleViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1>Articles</h1>
+</div>
+
+<p>
+    <a class="btn btn-secondary float-right" asp-action="Create">Create Article</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            全站搜索: <input type="text" name="Topic" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
+@foreach (var article in @Model)
+{
+<div class="mt-2">
+    <p>Topic: @article.Topic</p>
+    <p>Content: @article.Content</p>
+    <p>Category: @string.Join(" | ", article.Categories.Select(x => $"#{x.Name}"))</p>
+
+    @if ((int)ViewData["ownerId"] == article.UserId)
+    {
+        <div class="mt-2">
+            <a class="btn btn-success" type="button" asp-action="Edit" asp-route-id="@article.Id">Edit</a> |
+            <a class="btn btn-danger" type="button" asp-action="Delete" asp-route-id="@article.Id">Delete</a> |
+            <a class="btn btn-primary" type="button" asp-action="Details" asp-route-id="@article.Id">Details</a>
+        </div>
+    }
+
+    <hr />
+</div>
+}

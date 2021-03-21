@@ -1,0 +1,19 @@
+﻿@model ArticleViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="text-center">
+    <h1>Edit</h1>
+</div>
+
+<form asp-controller="Article" asp-action="Edit" method="post">
+    <label>Topic</label>
+    <input class="form-control" type="text" name="topic" value="@Model.Topic" />
+    <label>Content</label>
+    <input class="form-control" type="text" name="content" value="@Model.Content" />
+    <div class="text-right mt-2">
+        <button class="btn btn-success" type="submit" asp-route-id="@Model.Id">Edit</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </div>
+</form>

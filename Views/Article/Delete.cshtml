@@ -1,0 +1,22 @@
+﻿@model ArticleViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="text-center">
+    <h1>Delete</h1>
+</div>
+
+<form asp-controller="Articles" asp-action="Delete" method="post">
+    <label>Id</label>
+    <input class="form-control" type="text" name="id" value="@Model.Id" disabled />
+    <label>Topic</label>
+    <input class="form-control" type="text" name="topic" value="@Model.Topic" disabled />
+    <label>Content</label>
+    <input class="form-control" type="text" name="content" value="@Model.Content" disabled />
+
+    <div class="text-right mt-3">
+        <button class="btn btn-danger" type="submit" asp-route-id="@Model.Id">Delete</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </div>
+</form>

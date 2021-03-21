@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Comment</h1>
+
+<form asp-controller="Comment" asp-action="Create" method="post">
+    <input class="form-control" type="text" name="articleId" value="@ViewData["articleId"]" hidden />
+    <label>Content</label>
+    <textarea class="form-control" name="content"></textarea>
+    <button class="btn btn-primary mt-3" type="submit">Comment</button>
+</form>

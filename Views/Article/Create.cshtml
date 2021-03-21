@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="text-center">
+    <h1>Create Post</h1>
+</div>
+
+<form asp-controller="Article" asp-action="Create" method="post">
+    <label>Topic</label>
+    <input class="form-control" type="text" name="topic" />
+    <label>Category</label>
+    <input class="form-control" type="text" name="categories" />
+    <label>Content</label>
+    @*<input class="form-control" type="text" name="content">*@
+
+    <textarea class="form-control" name="content"></textarea>
+
+
+    <div class="text-right mt-3">
+        <button class="btn btn-primary" type="submit">Create</button>
+        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </div>
+    @*<div class="form-group">
+            <label asp-for="Content" class="control-label"></label>
+            <textarea asp-for="Article.Content" class="form-control"></textarea>
+            <span asp-validation-for="Article.Content" class="text-danger"></span>
+        </div>*@
+</form>

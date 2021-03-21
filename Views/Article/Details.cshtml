@@ -1,0 +1,35 @@
+﻿@model ArticleDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="text-center">
+    <h1>Details</h1>
+</div>
+<div>
+    <p><span class="font-weight-bold">Id:</span> @Model.Id</p>
+    <p><span class="font-weight-bold">Topic:</span> @Model.Topic</p>
+    <p><span class="font-weight-bold">Content:</span> @Model.Content</p>
+
+
+    <div>
+        <p><span class="font-weight-bold">Categories:</span> @string.Join(" | ", Model.Categories.Select(x => $"#{x.Name}"))</p>
+    </div>
+    <div>
+        <p class="font-weight-bold">Comments: </p>
+        @foreach (var comment in Model.Comments)
+        {
+            <p>@comment.Content</p>
+        }
+    </div>
+    <p>
+        <a class="btn btn-secondary" asp-controller="Comment" asp-action="Create" asp-route-id="@Model.Id">Add Comment</a>
+    </p>
+
+    <div class="text-right mt-3">
+        <a class="btn btn-success" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Delete</a> |
+        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+    </div>
+</div>
+

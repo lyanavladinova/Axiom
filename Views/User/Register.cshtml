@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<form asp-controller="User" asp-action="Register" method="post">
+    <label>Username</label>
+    <input class="form-control" type="text" name="username" />
+    <label>Password</label>
+    <input class="form-control" type="password" name="password" />
+    <label>Confirm Password</label>
+    <input class="form-control" type="password" name="confirmPassword" />
+    <label>First Name</label>
+    <input class="form-control" type="text" name="firstName" />
+    <label>Last Name</label>
+    <input class="form-control" type="text" name="lastName" />
+    <div class="text-right mt-3">
+        <button class="btn btn-primary" type="submit">Register</button>
+        <a class="btn btn-secondary" asp-controller="Post" asp-action="Index">Cancel</a>
+    </div>
+</form>
